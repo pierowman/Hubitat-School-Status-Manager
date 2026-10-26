@@ -1,10 +1,10 @@
 {
   "packageName": "School Status Manager",
   "author": "Pierowman",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "minimumHEVersion": "2.3.0",
   "dateReleased": "2026-10-26",
-  "releaseNotes": "Initial HPM-ready release. Renamed author and namespace to Pierowman/pierowman. Includes configurable ICS feed processing, last-good cache, school-year boundary handling, delayed openings in hours, manual overrides, diagnostics, test-date evaluation, failure notifications, and Rule Machine/Alexa integration guidance.",
+  "releaseNotes": "v1.6.1 Fixed cache age display showing -1 when the cached calendar is less than one day old.",
   "documentationLink": "https://github.com/pierowman/Hubitat-School-Status-Manager/blob/master/README.md",
   "communityLink": "https://github.com/pierowman/Hubitat-School-Status-Manager/issues",
   "category": "Convenience",

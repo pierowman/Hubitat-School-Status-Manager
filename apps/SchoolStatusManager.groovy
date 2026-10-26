@@ -4,7 +4,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.OffsetDateTime
 
-@Field static final String VERSION = "1.6.0"
+@Field static final String VERSION = "1.6.1"
 @Field static final String DEFAULT_FEED = "https://www.pwcs.edu/events/_data/academic-calendar.ics"
 @Field static final String DRIVER_NAME = "PWCS School Today Switch"
 @Field static final String CHILD_LABEL = "School Today"
@@ -67,7 +67,7 @@ def mainPage() {
             paragraph "Reason: ${d?.currentValue('reason') ?: 'Awaiting evaluation'}"
             paragraph "Source: ${d?.currentValue('source') ?: 'unknown'}"
             paragraph "Feed health: ${d?.currentValue('feedHealth') ?: 'unknown'}"
-            paragraph "Cache age: ${d?.currentValue('calendarCacheAgeDays') ?: -1} day(s)"
+            paragraph "Cache age: ${d?.currentValue('calendarCacheAgeDays') != null ? d.currentValue('calendarCacheAgeDays') : -1} day(s)"
             paragraph "Tomorrow: ${d?.currentValue('tomorrowStatus') ?: 'UNKNOWN'} - ${d?.currentValue('tomorrowReason') ?: 'not evaluated'}"
             paragraph "Next school day: ${d?.currentValue('nextSchoolDay') ?: 'unknown'}"
             paragraph "Next relevant event: ${d?.currentValue('nextRelevantEvent') ?: 'none known'}"
