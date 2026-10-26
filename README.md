@@ -208,14 +208,53 @@ The device publishes `tomorrowStatus`, `tomorrowReason`, and `nextSchoolDay`. Th
 
 The device additionally publishes `cachedEventCount`, `cacheFirstDate`, `cacheLastDate`, `firstDayMarkerFound`, and `lastDayMarkerFound` so the rolling calendar feed can be sanity-checked from the device page.
 
-## Hubitat Package Manager support
 
-Version 1.6.0 is packaged for Hubitat Package Manager (HPM). The package manifest is `manifests/packageManifest.json`, and the author's repository manifest is `manifests/repository.json`.
+## Installation with Hubitat Package Manager
 
-The source uses `Pierowman` as the displayed author and `pierowman` as the Hubitat namespace. Because versions through 1.5.0 used the old namespace, upgrading an existing manually installed copy to the HPM package should be treated as a namespace migration. Remove the old installed app and old user code after recording your settings, then install the Pierowman package and configure it again. The calendar cache will repopulate on the first successful refresh.
+This package is designed to be installed and updated with Hubitat Package Manager (HPM).
 
-The manifest URLs assume this GitHub repository path:
+### Prerequisite
 
-`https://github.com/Pierowman/Hubitat-School-Status-Manager`
+Install Hubitat Package Manager on the hub if it is not already installed. HPM manages installation and updates for third-party Hubitat apps and drivers.
 
-If the final GitHub owner or repository name differs, update all URLs in both JSON manifests before installing through HPM.
+### Install School Status Manager
+
+1. Open **Apps > Hubitat Package Manager** on the Hubitat hub.
+2. Choose **Install**.
+3. Choose **From a URL**.
+4. Paste this package manifest URL:
+
+   `https://raw.githubusercontent.com/pierowman/Hubitat-School-Status-Manager/master/manifests/packageManifest.json`
+
+5. Continue through the HPM prompts and install the package.
+6. After HPM installs the package, open **Apps** and choose **Add User App**.
+7. Select **School Status Manager**.
+8. Configure the academic-calendar feed and desired settings, then select **Done**.
+9. On first installation, the app schedules an initial calendar pull automatically. The **School Today** child device is created by the app.
+10. Open **Devices > School Today** to verify `schoolStatus`, `source`, `feedHealth`, `lastSuccessfulUpdate`, and the other diagnostics.
+
+HPM's **From a URL** installation expects the package JSON URL above, not the normal GitHub `blob` page and not a Groovy app/driver URL.
+
+### Updating
+
+When a newer package version is published, use **Hubitat Package Manager > Update** to install the new package version.
+
+After an HPM source update, open the installed **School Status Manager** app and select **Done**. This runs the app update lifecycle, recreates its schedules, and schedules a fresh calendar pull.
+
+### Repository layout
+
+- `apps/SchoolStatusManager.groovy` - Hubitat parent app
+- `drivers/SchoolStatusDevice.groovy` - School Today child-device driver
+- `manifests/packageManifest.json` - HPM package manifest
+- `manifests/repository.json` - package repository metadata
+- `README.md` - documentation
+
+## Manual installation
+
+HPM is the recommended deployment method. For manual installation:
+
+1. Add `drivers/SchoolStatusDevice.groovy` under **Drivers Code** and save it.
+2. Add `apps/SchoolStatusManager.groovy` under **Apps Code** and save it.
+3. Open **Apps > Add User App** and select **School Status Manager**.
+4. Configure the app and select **Done**.
+5. The app performs its initial calendar pull automatically after installation.
