@@ -1,0 +1,12 @@
+{
+  "author": "Pierowman",
+  "gitHubUrl": "https://github.com/Pierowman/Hubitat-School-Status-Manager",
+  "packages": [
+    {
+      "name": "School Status Manager",
+      "category": "Convenience",
+      "location": "https://raw.githubusercontent.com/Pierowman/Hubitat-School-Status-Manager/main/manifests/packageManifest.json",
+      "description": "School-day status from a configurable ICS feed with caching, delays, overrides, diagnostics, and Rule Machine/Alexa integration."
+    }
+  ]
+}

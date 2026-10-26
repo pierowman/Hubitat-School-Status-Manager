@@ -1,0 +1,34 @@
+{
+  "packageName": "School Status Manager",
+  "author": "Pierowman",
+  "version": "1.6.0",
+  "minimumHEVersion": "2.3.0",
+  "dateReleased": "2026-10-26",
+  "releaseNotes": "Initial HPM-ready release. Renamed author and namespace to Pierowman/pierowman. Includes configurable ICS feed processing, last-good cache, school-year boundary handling, delayed openings in hours, manual overrides, diagnostics, test-date evaluation, failure notifications, and Rule Machine/Alexa integration guidance.",
+  "documentationLink": "https://github.com/Pierowman/Hubitat-School-Status-Manager/blob/main/README.md",
+  "communityLink": "https://github.com/Pierowman/Hubitat-School-Status-Manager/issues",
+  "category": "Convenience",
+  "tags": ["Automations & Groups", "Notifications", "Calendar"],
+  "apps": [
+    {
+      "id": "4e410956-e0ae-54d8-8ccb-5a11df77eb83",
+      "name": "School Status Manager",
+      "namespace": "pierowman",
+      "location": "https://raw.githubusercontent.com/Pierowman/Hubitat-School-Status-Manager/main/apps/SchoolStatusManager.groovy",
+      "required": true,
+      "oauth": false,
+      "description": "Determines school status from an ICS calendar, cache, school-year boundaries, and manual overrides."
+    }
+  ],
+  "drivers": [
+    {
+      "id": "1a453005-c30d-5b47-952f-59381314e3a1",
+      "name": "PWCS School Today Switch",
+      "namespace": "pierowman",
+      "location": "https://raw.githubusercontent.com/Pierowman/Hubitat-School-Status-Manager/main/drivers/SchoolStatusDevice.groovy",
+      "required": true,
+      "oauth": false,
+      "description": "Child device for school status, manual controls, diagnostics, and Rule Machine attributes."
+    }
+  ]
+}
